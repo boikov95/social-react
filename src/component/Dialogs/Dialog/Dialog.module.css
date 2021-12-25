@@ -1,0 +1,15 @@
+.dialog a{
+    color: red;
+    text-decoration: none;
+}
+
+.dialog a.activeLink{
+    display: inline;
+    color: gold;  
+    align-content: center;   
+  }
+
+.item{
+    width: 40px;
+    padding-right: 15px;
+}

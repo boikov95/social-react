@@ -1,0 +1,14 @@
+.blockFriend{
+    display:inline-block;
+    padding-top: 10px;
+}
+
+.faceFriend img{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.Friend{
+    width: max;
+    color: salmon;
+}

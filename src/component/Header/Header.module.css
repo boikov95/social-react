@@ -1,0 +1,12 @@
+.header{
+    grid-area: h;
+    background-color: yellow;
+  }
+  
+  .header img{
+    width: 50px;
+  }
+
+  .auth{
+    float: right;
+  }
