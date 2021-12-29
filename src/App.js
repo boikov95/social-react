@@ -2,7 +2,7 @@ import React from 'react';
 import Profile from './component/Profile/Profile';
 import s from './App.module.css';
 import Navbar from './component/Navbar/Navbar';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import News from './component/News/News';
 import Music from './component/Music/Music';
 import Settings from './component/Settings/Settings';
@@ -31,7 +31,7 @@ componentDidMount(){
     return (<tooglephoto />)
 
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className={s.wrapper}>
           <HeaderComponent />
           <Navbar friend={this.props.friend} />
@@ -45,7 +45,7 @@ componentDidMount(){
             <Route path='/login' render={() => <Login />} />
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
