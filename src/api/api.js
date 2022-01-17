@@ -43,6 +43,12 @@ export const API = {
     loginOut(){
         return instance.delete(`auth/login/`)
         .then(response => response.data)
+    },
+    unloadPhoto(photo){
+        const formData = new FormData();
+        formData.append('image', photo);
+        return instance.post(`profile/photo/`, formData, {headers:{'Content-Type': 'multipart/form-data'}})
+        .then(response => response.data)
     }
 
     }

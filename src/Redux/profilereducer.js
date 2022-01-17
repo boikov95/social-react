@@ -3,11 +3,13 @@ import { API } from "../api/api";
 const AddPost = 'Add-Post';
 const UserInfo = 'UserInfo';
 const SET_SATUS = 'SET_SATUS';
+const SAVE_PHOTO ='SAVE_PHOTO';
 
 
 export const AddPostActionCreator = (post) => ({ type: AddPost, post });
 export const UserInfoAC = (users) => ({ type: UserInfo, users });
 export const StatusAC = (status) => ({ type: SET_SATUS, status });
+export const SavePhoto = (photo) => ({ type: SAVE_PHOTO, photo });
 
 let initialState = {
     postdata: [
@@ -35,6 +37,11 @@ let profilereducer = (state = initialState, action) => {
                 ...state,
                 status: action.status
             }
+        case SAVE_PHOTO:
+            return {
+                ...state,
+                usersInfo: {...state.usersInfo,  photos:action.photo}
+            }
         default: return state;
     }
 
@@ -61,6 +68,15 @@ export const updateStatus = (status) =>
             dispatch(StatusAC(status))
         }
     }
+
+export const unloadPhoto = (file) =>
+    async (dispatch) => {
+        let data = await API.unloadPhoto(file);
+        if (data.resultCode === 0) {
+            debugger;
+            dispatch(SavePhoto(data.data.photos))
+        }
+    }    
 
 
 export default profilereducer;
