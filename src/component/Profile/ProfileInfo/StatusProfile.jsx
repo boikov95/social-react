@@ -10,8 +10,11 @@ const StatusProfile = (props) =>{
         setStatus(props.status);
     },[props.status]);
 
-    const activate = () =>{        
+    const activate = () =>{   
+       if (props.isOwner)
+       {     
         setIsStatus(true);
+       }
     }
 
     const deactivate = () =>{
