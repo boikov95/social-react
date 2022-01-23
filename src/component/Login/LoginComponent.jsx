@@ -18,6 +18,8 @@ const LoginForm = (props) => {
                 <Field component={FormControlInput} name={'rememberMe'} type={'checkbox'} /> Remember Me
             </div>
             {props.error && <div className={s.errorLogin}>{props.error}</div>}
+            {props.captchaUrl && <img src={props.captchaUrl} />}
+            {props.captchaUrl && <Field component={FormControlInput} validate={required} name={'captcha'} placeholder={'Введите символы с картинки'} />}
             <div>
                 <button>Log IN</button>
             </div>

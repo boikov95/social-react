@@ -17,9 +17,9 @@ const Profileinfo = (props) => {
     }
 
     const onSubmit=(formData)=>{
-        props.saveProfile(formData).then(()=>{
-            setEdit(false);
-        });
+        props.saveProfile(formData);
+            //setEdit(false);
+        
     }
 
     const unloadPhoto = (e) => {
@@ -32,9 +32,9 @@ const Profileinfo = (props) => {
             <img className={s.photoProfile} src={props.usersInfo.photos.large ? props.usersInfo.photos.large : user} />
             {props.isOwner && <div><input type={'file'} onChange={unloadPhoto} /></div>}
             <StatusProfile isOwner={props.isOwner} status={props.status} updateStatus={props.updateStatus} />
-            {editMode
+            {props.edit
                 ? <ReduxFormProfile onSubmit={onSubmit} initialValues={props.usersInfo} usersInfo={props.usersInfo}/>
-                : <ProfileData setEdit={() => { setEdit(true) }} isOwner={props.isOwner} usersInfo={props.usersInfo} />}
+                : <ProfileData setEdit={() => { props.EditProfile(true) }} isOwner={props.isOwner} usersInfo={props.usersInfo} />}
         </div>
     )
 }

@@ -24,7 +24,7 @@ const Login = (props) => {
     return (        
         <div>
             <h3>LOGIN</h3>
-            <ReduxFormLogin onSubmit={submit}/>
+            <ReduxFormLogin captchaUrl={props.captchaUrl} onSubmit={submit}/>
         </div>
     )
 }
@@ -32,7 +32,8 @@ const Login = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.isAuth        
+        isAuth: state.auth.isAuth,
+        captchaUrl: state.auth.captchaUrl      
     }
 }
 
